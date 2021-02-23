@@ -1,0 +1,32 @@
+.title {
+    margin-bottom: 10px;
+    font-size    : 24px;
+    font-weight  : bold;
+}
+
+
+.feedback_btn {
+    border-radius: 10%;
+    box-shadow   : 0 0 5px 0 gray;
+    cursor       : pointer;
+}
+
+.feedback_btn:hover {
+    border-color: darkslateblue;
+    color       : darkslateblue;
+    box-shadow  : 0 0 5px 0 darkslateblue;
+    font-weight : bold;
+    transform   : scale(1.1);
+}
+
+.feedback_btn:not(:last-child) {
+    margin-right: 10px;
+}
+
+.message {
+    font-size: 20px;
+}
+
+.statistic__item {
+    margin-bottom: 5px;
+}
