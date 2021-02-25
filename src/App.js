@@ -16,29 +16,12 @@ class App extends Component {
     persentage: 0
   }
 
-  heandleGoodFeedback = () => {
+  heandleFeedback = name => {
     this.setState(prevState => ({
-      good: prevState.good + 1,
+      [name]: prevState[name] + 1,
     }))
     this.countTotalFeedback()
     this.countPositiveFeedbackPercentage()
-  }
-
-  heandleNeutralFeedback = () => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }))
-    this.countTotalFeedback()
-    this.countPositiveFeedbackPercentage()
-
-  }
-  heandleBadFeedback = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
-    }))
-    this.countTotalFeedback()
-    this.countPositiveFeedbackPercentage()
-
   }
 
   countTotalFeedback = () => {
@@ -60,9 +43,9 @@ class App extends Component {
     return (
       <div className="App">
         <Section title="Please leave feedback">
-          <FeedbackOptions heandleGoodFeedback={() => this.heandleGoodFeedback()}
-            heandleBadFeedback={this.heandleBadFeedback}
-            heandleNeutralFeedback={this.heandleNeutralFeedback} />
+          <FeedbackOptions
+            options={['good', 'neutral', 'bad']}
+            heandleFeedback={this.heandleFeedback} />
         </Section>
         <Section title="Statistics">
           <Statistics good={good} neutral={neutral} bad={bad} total={total} positiveFeedback={persentageOfFeedback} />

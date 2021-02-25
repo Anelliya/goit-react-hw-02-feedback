@@ -1,12 +1,14 @@
+
 import styles from './Statistic.module.css'
 
-const FeedbackOptions = ({ heandleGoodFeedback, heandleBadFeedback, heandleNeutralFeedback }) => {
+const generateUniqueId = require('generate-unique-id');
+
+
+const FeedbackOptions = ({ options, heandleFeedback }) => {
     return (
-        <div className="feedback">
-            <button type="button" onClick={heandleGoodFeedback} className={styles.feedback_btn} > Good</button>
-            <button type="button" onClick={heandleNeutralFeedback} className={styles.feedback_btn}>Neutral</button>
-            <button type="button" onClick={heandleBadFeedback} className={styles.feedback_btn}>Bad </button>
-        </div>
+        options.map(opt => (
+            <button type="button" key={generateUniqueId()} name={opt} onClick={() => heandleFeedback(opt)} className={styles.feedback_btn}>{opt}</button>
+        ))
     )
 }
 
